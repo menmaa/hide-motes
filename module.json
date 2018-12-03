@@ -1,0 +1,5 @@
+{
+	"disableAutoUpdate": false,
+	"servers": ["https://raw.githubusercontent.com/menmaa/hide-motes/master/"],
+	"supportUrl": "https://github.com/menmaa/hide-motes/issues"
+}
