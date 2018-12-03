@@ -9,9 +9,13 @@ module.exports = function HideMotes(mod) {
 		({ gameId } = event);
 	});
 	
+	mod.hook('S_LOAD_TOPO', 'raw', () => {
+		motes = {};
+	});
+	
 	mod.hook('S_SPAWN_DROPITEM', 6, (event) => {
 		if(event.source === gameId) return;
-		if((event.item >= 8008 && event.item <= 8022) || event.item === 8023) {
+		if(event.item >= 8008 && event.item <= 8023) {
 			motes[event.gameId] = Object.assign({}, event);
 			motes[event.gameId].explode = false;
 
