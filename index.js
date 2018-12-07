@@ -14,23 +14,26 @@ module.exports = function HideMotes(mod) {
 	});
 	
 	mod.hook('S_SPAWN_DROPITEM', 6, (event) => {
-		if(event.source === gameId) return;
 		if(event.item >= 8008 && event.item <= 8023) {
 			motes[event.gameId] = Object.assign({}, event);
 			motes[event.gameId].explode = false;
 
-			if(enabled) return false;
+			if(enabled && event.source !== gameId) return false;
 		}
 	});
 	
 	mod.hook('S_DESPAWN_DROPITEM', 4, (event) => {
+		if(enabled && motes[event.gameId].source !== gameId) {
+			delete motes[event.gameId];
+			return false;
+		}
 		delete motes[event.gameId];
-		
-		if(enabled) return false;
 	});
 	
 	function hideMotes() {
 		Object.keys(motes).forEach((mote) => {
+			if(motes[mote].source === gameId) return;
+			
 			mod.send('S_DESPAWN_DROPITEM', 4, {
 				gameId: motes[mote].gameId
 			});
@@ -39,6 +42,8 @@ module.exports = function HideMotes(mod) {
 	
 	function showMotes() {
 		Object.keys(motes).forEach((mote) => {
+			if(motes[mote].source === gameId) return;
+			
 			mod.send('S_SPAWN_DROPITEM', 6, motes[mote]);
 		});
 	}
