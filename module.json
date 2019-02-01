@@ -1,5 +1,12 @@
 {
 	"disableAutoUpdate": false,
+	"name": "hide-motes",
+	"author": "Menma",
+	"description": "Hides all Arun's Vitae and Arun's Tear Motes to increase performance when a ton of those are spawned.",
+	"options": {
+		"guiName": "Hide Mystic Motes"
+	},
 	"servers": ["https://raw.githubusercontent.com/menmaa/hide-motes/master/"],
-	"supportUrl": "https://github.com/menmaa/hide-motes/issues"
+	"supportUrl": "https://github.com/menmaa/hide-motes/issues",
+	"donationUrl": "https://www.paypal.me/menmaaa"
 }
