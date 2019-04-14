@@ -5,7 +5,7 @@ module.exports = function HideMotes(mod) {
 	let enabled = false;
 	let gameId;
 	
-	mod.hook('S_LOGIN', 10, (event) => {
+	mod.hook('S_LOGIN', 12, (event) => {
 		({ gameId } = event);
 	});
 	
@@ -13,7 +13,7 @@ module.exports = function HideMotes(mod) {
 		motes = {};
 	});
 	
-	mod.hook('S_SPAWN_DROPITEM', 6, (event) => {
+	mod.hook('S_SPAWN_DROPITEM', 7, (event) => {
 		if(event.item >= 8008 && event.item <= 8023) {
 			motes[event.gameId] = Object.assign({}, event);
 			motes[event.gameId].explode = false;
@@ -46,7 +46,7 @@ module.exports = function HideMotes(mod) {
 		Object.keys(motes).forEach((mote) => {
 			if(motes[mote].source === gameId) return;
 			
-			mod.send('S_SPAWN_DROPITEM', 6, motes[mote]);
+			mod.send('S_SPAWN_DROPITEM', 7, motes[mote]);
 		});
 	}
 	
