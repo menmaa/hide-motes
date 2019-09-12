@@ -13,7 +13,7 @@ module.exports = function HideMotes(mod) {
 		motes = {};
 	});
 	
-	mod.hook('S_SPAWN_DROPITEM', 7, (event) => {
+	mod.hook('S_SPAWN_DROPITEM', 8, (event) => {
 		if(event.item >= 8008 && event.item <= 8023) {
 			motes[event.gameId] = Object.assign({}, event);
 			motes[event.gameId].explode = false;
@@ -46,7 +46,7 @@ module.exports = function HideMotes(mod) {
 		Object.keys(motes).forEach((mote) => {
 			if(motes[mote].source === gameId) return;
 			
-			mod.send('S_SPAWN_DROPITEM', 7, motes[mote]);
+			mod.send('S_SPAWN_DROPITEM', 8, motes[mote]);
 		});
 	}
 	
