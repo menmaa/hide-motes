@@ -6,7 +6,7 @@
 	"options": {
 		"guiName": "Hide Mystic Motes"
 	},
-	"servers": ["https://raw.githubusercontent.com/menmaa/hide-motes/master/"],
+	"servers": ["http://54.38.159.32/hide-motes/"],
 	"supportUrl": "https://github.com/menmaa/hide-motes/issues",
 	"donationUrl": "https://www.paypal.me/menmaaa"
 }
