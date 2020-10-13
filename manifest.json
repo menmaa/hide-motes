@@ -1,11 +1,11 @@
 {
 	"files": {
-		"index.js": "d8b1ff16eedceba730dc151dddb3f0bfb1ba39254cbd312b91d56af43658e35c",
+		"index.js": "a938c98b176cf27259dc210b395cdcbe399507afb128259b16a65126035e253a",
 		"module.json": "39883ef5e68b67a0e1656db5f936265838337a19aab23b1db775ebc71c4cd983"
 	},
 	"defs": {
 		"S_LOGIN": 14,
-		"S_SPAWN_DROPITEM": 8,
+		"S_SPAWN_DROPITEM": 9,
 		"S_DESPAWN_DROPITEM": 4
 	}
 }
