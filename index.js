@@ -24,9 +24,11 @@ module.exports = function HideMotes(mod) {
 	
 	mod.hook('S_DESPAWN_DROPITEM', 4, (event) => {
 		if(motes[event.gameId]) {
+			if(enabled && motes[event.gameId].source !== gameId) {
+				delete motes[event.gameId];
+				return false;
+			}
 			delete motes[event.gameId];
-			
-			if(enabled && motes[event.gameId].source !== gameId) return false;
 		}
 	});
 	
