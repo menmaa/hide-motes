@@ -5,7 +5,7 @@ module.exports = function HideMotes(mod) {
 	let enabled = false;
 	let gameId;
 	
-	mod.hook('S_LOGIN', 14, (event) => {
+	mod.hook('S_LOGIN', 15, (event) => {
 		({ gameId } = event);
 	});
 	
